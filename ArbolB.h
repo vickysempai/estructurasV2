@@ -14,7 +14,7 @@ protected:
 public:
 	ArbolB()
 	{
-		orden = 4;
+		orden = 5;
 		raiz = NULL;
 	};
 	ArbolB(int m)

@@ -117,7 +117,6 @@ void ArbolB::meterPagina(Pagina* actual, tipoClave cl,
 		actual->Prama(i + 1, actual->Orama(i));
 	}
 	// pone la clave y la rama derecha en la posición k+1
-	cout<<k<<"alv";
 	actual->Pclave(k + 1, cl);
 	actual->Prama(k + 1, ramaDr);
 	// incrementa el contador de claves almacenadas
