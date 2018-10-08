@@ -1,0 +1,5 @@
+12;5689;Juan Perez;5874569;1
+12;5903;Pedro Acosta;9632587;0
+20;9658;Ana Mata;2357910;3
+34;9073;Sofia Carvaja;8974563;2
+12;5689; Lucy Camacho;9874563;1
