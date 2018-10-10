@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include "ABB/Binario.cpp"
+#include "ABB(ciudades)/Binario.cpp"
 
 using namespace std;
 
@@ -41,7 +41,7 @@ Binario leerCiudades(string file_name) {
     return arbol;
 }
 
-int main(int argc, char const *argv[]) {
+/*int main(int argc, char const *argv[]) {
     Binario ciudades = leerCiudades("archivos_txt/Ciudad.txt");
 	cout << "Postorden: ";
     PostordenR(ciudades.raiz);
@@ -54,5 +54,5 @@ int main(int argc, char const *argv[]) {
 	cout << endl;
 	//cin.get();
 	return 0;
-}
+}*/
 
