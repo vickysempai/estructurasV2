@@ -102,8 +102,7 @@ int main(int argc, char const *argv[]) {
     leerArchivo(supers,ciudades,"archivos_txt/supermercado.txt",0);
     leerArchivo(supers,ciudades,"archivos_txt/Inventariodatos.txt",1);
     //ciudades.PreordenI(ciudades.raiz);
-    //supers.mostrar(supers.primeroRN);
-    //supers.mostrarInventarios(supers.primeroRN);
+    supers.mostrar(supers.primeroRN);
 	//cin.get();
 	return 0;
 }

@@ -20,7 +20,7 @@ void RyN::insercion(string ciudad,string codigo,string pNombre)
 		{
 			hijo->padre = ayudante;
 			bandera = 1;
-			if (stoi(codigo) == stoi(ayudante->codSuper))
+			if (stoi(codigo) < stoi(ayudante->codSuper))
 			{
 				if (ayudante->izquierdo)
 					ayudante = ayudante->izquierdo;
@@ -154,17 +154,11 @@ void RyN::mostrar(nodoRyN* actual)
 {
 	if (actual != NULL)
 	{
-		cout << actual->codCiudad << ";" << actual->codSuper << ";" << actual->nombre << "|" << actual->color << "-> ";
+		cout << actual->codCiudad << ";" << actual->codSuper << ";" << actual->nombre << "|" << actual->color << "|" << "Inventario->";
 		actual->inventario->mostrar(actual->inventario->raiz);
+		cout << endl;
+		cout << endl;
 		mostrar(actual->izquierdo);
 		mostrar(actual->derecho);
-	}
-}
-
-void RyN::mostrarInventarios(nodoRyN *actual){
-	if(actual != NULL){
-		actual->inventario->mostrar(actual->inventario->raiz);
-		mostrarInventarios(actual->izquierdo);
-		mostrarInventarios(actual->derecho);
 	}
 }

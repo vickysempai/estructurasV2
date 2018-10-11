@@ -24,9 +24,9 @@ public:
 		{	
 			if (stoi(codigo) == stoi(ayudante->codSuper))
 				return ayudante;
-			else if (stoi(codigo) > stoi(ayudante->codSuper))
-				ayudante = ayudante->izquierdo;
 			else if (stoi(codigo) < stoi(ayudante->codSuper))
+				ayudante = ayudante->izquierdo;
+			else if (stoi(codigo) > stoi(ayudante->codSuper))
 				ayudante = ayudante->derecho;
 		}
 		return NULL;

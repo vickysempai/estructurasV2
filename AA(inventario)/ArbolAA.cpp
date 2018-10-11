@@ -95,7 +95,7 @@ NodoAA* ArbolAA::insertarAux(NodoAA* temp, NodoAA* aux)
 		raiz = aux;
 		return raiz;
 	}
-	if (aux->cantidad > temp->cantidad)
+	if (stoi(aux->codProducto) < stoi(temp->codProducto))
 	{
 		if (temp->izquierda)
 			return insertarAux(temp->izquierda, aux);
@@ -105,7 +105,7 @@ NodoAA* ArbolAA::insertarAux(NodoAA* temp, NodoAA* aux)
 		rebalancear(aux);
 		return aux;
 	}
-	if (aux->cantidad > temp->cantidad)
+	if (stoi(aux->codProducto) > stoi(temp->codProducto))
 	{
 		if (temp->derecha)
 			return insertarAux(temp->derecha, aux);
@@ -155,5 +155,4 @@ void ArbolAA::mostrar(NodoAA *actual){
 		mostrar(actual->izquierda);
 		mostrar(actual->derecha);
 	}
-	cout << endl;
 }
