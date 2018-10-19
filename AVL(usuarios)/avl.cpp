@@ -29,6 +29,8 @@ public:
 	void inorder(avl_node *);
 	void preorder(avl_node *);
 	void postorder(avl_node *);
+	avl_node* obtenerUsuario(string cedula);
+	avl_node* obtenerUsuario(avl_node*root,string cedula);
 	avlTree()
 	{
 		root = NULL;
@@ -38,7 +40,7 @@ public:
 /*
 * Main Contains Menu
 */
-/*
+
 int main()
 {
 	int choice, item;
@@ -48,7 +50,12 @@ int main()
 	avl.root= avl.insert(avl.root,"10","20","30","50");
 	//avl.root= avl.insert(avl.root,2);
 	//avl.root= avl.insert(avl.root,1);
-	avl.postorder(avl.root);/*
+	avl.postorder(avl.root);
+	avl_node* victor;
+	victor=avl.obtenerUsuario("7");
+	if(victor)
+	    cout<<victor->nombre;
+	/*
 	while (1)
 	{
 		cout<<"\n---------------------"<<endl;
@@ -99,10 +106,10 @@ int main()
 		default:
 			cout<<"Wrong Choice"<<endl;
 		}
-	}
+	}*/
 	return 0;
 }
-*/
+
 /*
 * Height of AVL Tree
 */
@@ -173,6 +180,32 @@ avl_node *avlTree::rl_rotation(avl_node *parent)
 	temp = parent->right;
 	parent->right = ll_rotation (temp);
 	return rr_rotation (parent);
+}
+
+avl_node *avlTree::obtenerUsuario(string cedula)
+{
+	return obtenerUsuario(root,cedula);
+}
+
+avl_node *avlTree::obtenerUsuario(avl_node* root,string cedula)
+{
+	if (root == NULL)
+	{
+		return NULL;
+	}
+	else if (root->cedula==cedula)
+	{
+		return root;
+	}
+	else if (cedula < root->cedula)
+	{
+		return obtenerUsuario(root->left,cedula);
+	}
+	else if (cedula >= root->cedula)
+	{
+		return obtenerUsuario(root->right, cedula);
+	}
+	return NULL;
 }
 
 /*
