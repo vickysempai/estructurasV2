@@ -99,10 +99,10 @@ int main()
 		default:
 			cout<<"Wrong Choice"<<endl;
 		}
-	}*/
+	}
 	return 0;
 }
-
+*/
 /*
 * Height of AVL Tree
 */
