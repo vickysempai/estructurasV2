@@ -1,15 +1,11 @@
 /*
 * C++ program to Implement AVL Tree
 */
-#ifndef NODOAVL.H
-#define NODOAVL.H
+#ifndef NODOAVL_H
+#define NODOAVL_H
 
 #include<iostream>
 #include<cstdio>
-#include<sstream>
-#include<algorithm>
-#include "../ArbolB(usuarios)/nodoUsuario.h"
-#define pow2(n) (1 << (n))
 using namespace std;
 
 /*
@@ -27,6 +23,6 @@ public:
 	string telefono;
 	avl_node *left;
 	avl_node *right;
-}*root;
+};
 
 #endif

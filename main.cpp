@@ -1,12 +1,9 @@
 #include <iostream>
 #include "ArbolB.h"
-#include "ArbolAA.h"
-#include "NodoAA.h"
 
 using namespace std;
 
 int main(){
-	
 	/*
 	ArbolAA arbol;
 	arbol.insertar(15,"jimmy");
@@ -15,7 +12,7 @@ int main(){
 	Pagina feo(3);
 	feo.Pclave(1,2);
 	feo.Pclave(2,5);
-	
+	*/
 	ArbolB b(5);
 	b.insertar(6);
 	b.insertar(11);
@@ -31,6 +28,6 @@ int main(){
 	
 	b.escribir();
 	b.listarCreciente();
-	*/
+	
 	return (EXIT_SUCCESS);
 }

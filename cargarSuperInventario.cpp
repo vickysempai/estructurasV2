@@ -13,6 +13,7 @@ void insertarSuper(RyN &arbol,Binario &ciudades, string datos) {
 	bool bandera1 = false;
 	bool bandera2 = false;
 	for (int i = 0; i < datos.length(); i++) {
+		cout<<datos[i]<<endl;
 		if (datos[i] != *";") {
 			if (!bandera1) {
 				codCiudad.operator+=(datos[i]);

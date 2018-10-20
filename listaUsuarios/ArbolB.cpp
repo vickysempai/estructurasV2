@@ -14,7 +14,7 @@ bool ArbolB::buscarNodo(Pagina* actual, tipoClave &cl, int & k)
 		index = 0;
 	}
 	else
-	{ // orden descendente
+	{ // orden descendente	
 		index = actual->Ocuenta();
 		while (cl.cedula < actual->Oclave(index).Ocedula() && (index > 1))
 			index--;
