@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\aa(inventario)\</FILEPATH>
+      <FILENAME>nodoaa.h</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'NodoAA::cont' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>NodoAA::{ctor}</FUNCTION>
+    <DECORATED>??0NodoAA@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00HM@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\aa(inventario)\</FILEPATH>
+      <FILENAME>nodoaa.h</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'NodoAA::nivel' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>NodoAA::{ctor}</FUNCTION>
+    <DECORATED>??0NodoAA@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00HM@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\aa(inventario)\</FILEPATH>
+      <FILENAME>nodoaa.h</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'NodoAA::derecha' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>NodoAA::{ctor}</FUNCTION>
+    <DECORATED>??0NodoAA@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00HM@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\aa(inventario)\</FILEPATH>
+      <FILENAME>nodoaa.h</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'NodoAA::izquierda' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>NodoAA::{ctor}</FUNCTION>
+    <DECORATED>??0NodoAA@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00HM@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\aa(inventario)\</FILEPATH>
+      <FILENAME>nodoaa.h</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'NodoAA::padre' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>NodoAA::{ctor}</FUNCTION>
+    <DECORATED>??0NodoAA@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00HM@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\aa(inventario)\</FILEPATH>
+      <FILENAME>nodoaa.h</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'NodoAA::raiz' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>NodoAA::{ctor}</FUNCTION>
+    <DECORATED>??0NodoAA@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00HM@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+      <FILENAME>arbolryn.cpp</FILENAME>
+      <LINE>122</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>Desreferenciando el puntero NULL 'node'. Vea la línea 57 para obtener una ubicación anterior donde esto puede ocurrir</DESCRIPTION>
+    <FUNCTION>RyN::solucionarRojoRojo</FUNCTION>
+    <DECORATED>?solucionarRojoRojo@RyN@@QAEXPAVnodoRyN@@H@Z</DECORATED>
+    <FUNCLINE>51</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+        <FILENAME>arbolryn.cpp</FILENAME>
+        <LINE>53</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+        <FILENAME>arbolryn.cpp</FILENAME>
+        <LINE>54</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+        <FILENAME>arbolryn.cpp</FILENAME>
+        <LINE>55</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+        <FILENAME>arbolryn.cpp</FILENAME>
+        <LINE>56</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+        <FILENAME>arbolryn.cpp</FILENAME>
+        <LINE>57</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+        <FILENAME>arbolryn.cpp</FILENAME>
+        <LINE>58</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+        <FILENAME>arbolryn.cpp</FILENAME>
+        <LINE>84</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+        <FILENAME>arbolryn.cpp</FILENAME>
+        <LINE>102</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+        <FILENAME>arbolryn.cpp</FILENAME>
+        <LINE>120</LINE>
+        <COLUMN>17</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>bifurcar</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'node' puede ser NULL (Entrar en esta bifurcación)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\rn(supers)\</FILEPATH>
+        <FILENAME>arbolryn.cpp</FILENAME>
+        <LINE>122</LINE>
+        <COLUMN>6</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>uso</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'node' se desreferencia, pero puede que siga siendo NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\abb(ciudades)\</FILEPATH>
+      <FILENAME>binario.cpp</FILENAME>
+      <LINE>63</LINE>
+      <COLUMN>26</COLUMN>
+    </SFA>
+    <DEFECTCODE>6281</DEFECTCODE>
+    <DESCRIPTION>Orden incorrecto de operaciones:  los operadores relacionales tienen mayor prioridad que los operadores bit a bit.</DESCRIPTION>
+    <FUNCTION>Binario::InordenI</FUNCTION>
+    <DECORATED>?InordenI@Binario@@QAEXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

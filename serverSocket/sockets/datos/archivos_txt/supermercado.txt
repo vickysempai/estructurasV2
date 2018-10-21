@@ -1,0 +1,5 @@
+12;1024;Tristete
+96;78;ConTe
+20;1896;Papalote
+12;1206;Sol Naciente
+12;1024;No pego

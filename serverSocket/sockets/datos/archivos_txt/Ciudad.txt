@@ -1,0 +1,4 @@
+12;San Jose
+20;Limon
+34;Heredia
+12;Cartago

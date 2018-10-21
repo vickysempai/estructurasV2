@@ -1,0 +1,7 @@
+﻿  Server.cpp
+c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\abb(ciudades)\binario.cpp(63): warning C4554: "&": compruebe la prioridad de operador para posibles errores; utilice paréntesis para indicar la prioridad
+c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\cargarciudades.h(13): warning C4018: '<': no coinciden signed/unsigned
+c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\cargardatos.h(17): warning C4018: '<': no coinciden signed/unsigned
+c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\datos\cargardatos.h(47): warning C4018: '<': no coinciden signed/unsigned
+c:\users\penas\desktop\tec\ii semestre 2018\estructuras\proyectos\sockets\serversocket\sockets\server.cpp(771): warning C4717: 'menuAdmin': recursiva para todas las rutas de acceso de control; la función provocará el desbordamiento de la pila en tiempo de ejecución
+  sockets.vcxproj -> C:\Users\penas\Desktop\TEC\II Semestre 2018\Estructuras\Proyectos\sockets\serverSocket\sockets\Debug\sockets.exe
