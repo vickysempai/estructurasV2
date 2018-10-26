@@ -14,10 +14,12 @@ public:
 		nombre = pNombre;
 		cantidad = pCant;
 		precioU = pPrecio;
+		masVendido = 0;
 	}
 
 	int cont, nivel, cantidad;
 	float precioU;
+	int masVendido;
 	string codSuper,codProducto,nombre;
 	NodoAA *derecha;
 	NodoAA *izquierda;
