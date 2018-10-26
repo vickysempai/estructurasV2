@@ -142,3 +142,4 @@ bool Binario::buscar(string cod){
     return false;
 }
 
+

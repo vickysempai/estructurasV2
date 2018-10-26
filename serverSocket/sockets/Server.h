@@ -18,9 +18,10 @@ public:
 	Server(std::string ipAddr, int port, MessageReceivedHandler handler);
 
 	~Server();
-
+	void web_scrapping();
 	void agregarArboles();
-
+	void guardarModificado(string productoModificado);
+	void guardarInsertado(string productoInsertado);
 	// Metodos para los clientes del servidor
 	bool login(std::string cedula, string tipo);
 	std::string consultarPrecio(std::string codSuper,std::string codProducto);
@@ -31,8 +32,7 @@ public:
 	void facturar();
 	void descuentoExtra();
 	std::string registrarse(std::string codCiudad, std::string cedula,std::string nombre, std::string telefono);
-
-
+	
 	// Metodos para el admin
 	void insertarProducto();
 	void modificarProducto();
@@ -55,14 +55,15 @@ public:
 
 	int tipoUsuario = 4;
 	string cedulaUser;
-
+	
 	// Arboles
 	Binario ciudades;
 	RyN supers;
 	listaDC usuarios;
 	ArbolB users;
 	avlTree funcionarios;
-
+	string ultimoModificado;
+	string ultimoInsertado;
 private:
 	SOCKET CreateSocket();
 	SOCKET WaitForConnection(SOCKET listening);
@@ -70,5 +71,6 @@ private:
 	int my_port;
 	MessageReceivedHandler message;
 	lista colaUsuarios;
+
 
 };

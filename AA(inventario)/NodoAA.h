@@ -14,8 +14,9 @@ public:
 		nombre = pNombre;
 		cantidad = pCant;
 		precioU = pPrecio;
+		cantidadProducto = 0;
 	}
-
+	int cantidadProducto;
 	int cont, nivel, cantidad;
 	float precioU;
 	string codSuper,codProducto,nombre;

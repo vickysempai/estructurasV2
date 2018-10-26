@@ -7,8 +7,9 @@ using namespace std;
 
 class nodoRyN{
 public:
-	nodoRyN(string ciudad,string codigo,string pNombre){codCiudad = ciudad;codSuper = codigo;nombre = pNombre; color = 'R'; izquierdo = NULL; derecho = NULL; padre = NULL;}
+	nodoRyN(string ciudad, string codigo, string pNombre) { cantidadSuper = 0;codCiudad = ciudad;codSuper = codigo;nombre = pNombre; color = 'R'; izquierdo = NULL; derecho = NULL; padre = NULL; }
 	string codCiudad,codSuper,nombre;
+	int cantidadSuper;
 	char color; // r = ROJO   y   n = NEGRO
 	nodoRyN *izquierdo;
 	nodoRyN *derecho;

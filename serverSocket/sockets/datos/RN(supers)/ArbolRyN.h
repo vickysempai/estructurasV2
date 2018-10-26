@@ -14,6 +14,7 @@ public:
 	void liberar(nodoRyN *node); // para liberar la memoria cuando desea salir del programa
 	void mostrar(nodoRyN * actual); // muestra el padre e hijos del numero insertado y tambien el color del nodo
 	void mostrarInventarios(nodoRyN *actual);
+	
 	nodoRyN *buscar(string codigo) // para buscar un numero en el arbol
 	{
 		nodoRyN *ayudante;
@@ -22,12 +23,15 @@ public:
 			return NULL;
 		while (ayudante != NULL)
 		{	
-			if (stoi(codigo) == stoi(ayudante->codSuper))
+			if( (stoi(codigo) == stoi(ayudante->codSuper))) {
 				return ayudante;
-			else if (stoi(codigo) < stoi(ayudante->codSuper))
+			}
+			else if ((stoi(codigo) < stoi(ayudante->codSuper))) {
 				ayudante = ayudante->izquierdo;
-			else if (stoi(codigo) > stoi(ayudante->codSuper))
+			}
+			else if ((stoi(codigo) > stoi(ayudante->codSuper))) {
 				ayudante = ayudante->derecho;
+			}
 		}
 		return NULL;
 	}

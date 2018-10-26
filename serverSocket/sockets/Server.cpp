@@ -1,3 +1,10 @@
+﻿#ifdef _DEBUG
+#undef _DEBUG
+#include <Python.h>
+#define _DEBUG
+#else
+#include <Python.h>
+#endif
 #include "Server.h"
 #include <fstream>
 #include <sstream>
@@ -5,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include <WS2tcpip.h>
+
 #pragma comment (lib, "ws2_32.lib")
 
 constexpr auto ADMIN = ("1.Insertar producto\n2.Modificar producto\n3.Consultar precio\n4.Consultar descuentos\n5.Consultar productos de un super\n6.Registrar clientes\n7.Reportes\n8.Ver datos\n9.Abrir servidor\nQue desea hacer: ");
@@ -438,6 +446,7 @@ void Server::descuentoExtra() {
 }
 
 string Server::comprar(string codSuper,string nombre,int cant,float precio) {
+	nodoRyN* super = server.supers.buscar(codSuper);
 	if (tipoUsuario == 0) {
 		int n;
 		Pagina *p = users.buscar(server.cedulaUser, n);
@@ -447,11 +456,13 @@ string Server::comprar(string codSuper,string nombre,int cant,float precio) {
 		else if (user->carrito.codSuper != codSuper)
 			return "Ese producto esta en otro super al que esta comprando";
 		user->carrito.InsertarFinal(nombre, cant, precio);
+		super->cantidadSuper++;
 		return "Compra realizada con exito";
 	}
 	else {
 		avl_node *user = funcionarios.obtenerUsuario(server.cedulaUser);
 		user->carrito.InsertarFinal(nombre, cant, precio);
+		super->cantidadSuper++;
 		return "Compra realizada con exito";
 	}
 }
@@ -519,7 +530,7 @@ string Server::registrarse(string codCiudad,string cedula,string nombre,string t
 	}
 	else {
 		server.colaUsuarios.InsertarFinal(codCiudad, cedula, nombre, telefono, "0");
-		return "Usuario a�adido a la cola de espera";
+		return "Usuario añadido a la cola de espera";
 	}
 }
 
@@ -554,21 +565,23 @@ void Server::insertarProducto() {
 	getline(cin, cantidad);
 	cout << "Precio unitario: ";
 	getline(cin, precio);
-
+	
 	supers.insertarProducto(codSuper, codigo, nombre, stoi(cantidad), stof(precio));
+	guardarInsertado(nombre);
 	return;
 }
 
 void Server::modificarProducto() {
 	string codSuper, codigo;
 	cout << "Codigo del super: ";
-	getline(cin, codSuper);
+	cin >> codSuper;
 	if ((supers.buscar(codSuper) == NULL)) {
 		cout << "Super no encontrado" << endl;
 		return;
 	}
 	cout << "Codigo del producto: ";
-	getline(cin, codigo);
+	cin >> codigo;
+	
 	if (((supers.buscar(codSuper)->inventario->buscar(codigo))) != NULL) {
 		string respuesta;
 		cout << "Que desea modificar?" << endl;
@@ -592,6 +605,7 @@ void Server::modificarProducto() {
 			cout << "Ya existe un producto con ese codigo" << endl;
 			return;
 		}
+		guardarModificado(producto->nombre);
 		switch (stoi(respuesta)) {
 		case 1:
 			producto->codSuper = cambio;
@@ -755,7 +769,7 @@ void menuAdmin() {
 		server.registrarCliente();
 	}
 	else if (msg == "7") {
-		// reportes()
+		server.reportes();
 	}
 	else if (msg == "8") {
 		server.verDatos();
@@ -772,10 +786,254 @@ void menuAdmin() {
 	cout << endl;
 	menuAdmin();
 }
+void Server::web_scrapping() {
+
+	// Para concatenar el url con el producto que se quiere buscar
+	string producto = "victor\"";
+	string link = "url = \"https:/\/www.ebay.com/sch/";
+
+	string string_final = link + producto;
+	const char* url_final = string_final.c_str();
+
+	cout << url_final << endl;
+	//////////////////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////////////////
+
+	int numero = 2;
+	string num_string = to_string(numero);
+	string codigo = "for i in range(0," + num_string;
+	string resto_codigo = codigo + "): informacion =informacion + (soup.findAll(\"img\",\"s - item__image - img\")[i]).get(\"alt\") +\";\"+ (soup.find_all(\"span\", \"ITALIC\")[i].text).replace(\" \", \"\") +\";\"+ (soup.findAll(\"img\", \"s-item__image-img\")[i]).get('src')+ \";\" + \"\\n\"";
+	const char* codigo_for = resto_codigo.c_str();
+
+	///////////////////////////////////////////////////////////////
+
+	////////////////////////////////////////////////////////////////
+	//Interprete Python
+
+	Py_Initialize();
+
+	PyRun_SimpleString("import requests");
+	PyRun_SimpleString("from bs4 import BeautifulSoup");
+
+	PyRun_SimpleString(url_final);
+	PyRun_SimpleString("pagina = requests.get(url)");
+
+	PyRun_SimpleString("soup = BeautifulSoup(pagina.content, 'html.parser')");
+	PyRun_SimpleString("informacion = \"\"");
+
+	PyRun_SimpleString("archivo = open(\"datos.txt\",\"w\", encoding='utf-8')");
+	PyRun_SimpleString(codigo_for);
+
+
+	PyRun_SimpleString("archivo.write(informacion)");
+	PyRun_SimpleString("archivo.close()");
+
+
+	//PyObject *add_module = PyImport_ImportModule("web_scapping.py");
+	//PyObject *result=PyObject_CallMethod(PyImport_ImportModule("web_scapping.py"), "web_scrapping", "mesa");
+
+	Py_Finalize();
+
+
+
+}
+void Server::guardarModificado(string productoModificado) {
+	ofstream archivo;
+	archivo.open("UltimoModificado.txt", ios::out);
+	archivo << productoModificado << endl;
+	archivo.close();
+}
+
+void Server::guardarInsertado(string productoInsertado) {
+	ofstream archivo;
+	archivo.open("UltimoInsertado.txt", ios::out);
+	archivo << productoInsertado << endl;
+	archivo.close();
+}
+void ingresar() {
+	string cedula;
+	cout << "por favor ingrese su cedula " << endl;
+	cin >> cedula;
+	if (server.login(cedula, "1")) {
+		menuAdmin();
+	}
+	else {
+		cout << "favor volver a intentar" << endl;
+		ingresar();
+	}
+}
+void buscarMasVisitado(nodoRyN *R, int &k, int &m, string &superk, string &superm) {
+	//k es mayor
+	//m es menor
+	if (R == NULL) {
+		return;
+	}
+	else {
+		buscarMasVisitado(R->izquierdo, k, m, superk, superm);
+		buscarMasVisitado(R->derecho, k, m, superk, superm);
+		if (R->cantidadSuper > k) {
+			k = R->cantidadSuper;
+			superk = R->nombre;
+		}
+		if (R->cantidadSuper < m) {
+			m = R->cantidadSuper;
+			superm = R->nombre;
+		}
+	}
+}
+
+void clientequemascompro(Pagina * r,int h,int &k, int &m, string &superk, string &superm)//h se inicia en 1
+{
+	int i;
+	if (r != NULL)
+	{
+		clientequemascompro(r->Orama(0), h + 5, k, m, superk, superm);
+		for (i = 1; i <= r->Ocuenta() / 2;i++)
+		{ // llamadas recursivas a la mitad de los sub�rboles
+			clientequemascompro(r->Orama(i), h + 5,k,m,superk,superm);
+			//cout << endl;
+		}
+		// visualizaci�n de las claves de la p�gina apuntada por r
+		for (i = 1; i <= r->Ocuenta();i++)
+		{
+			for (int j = 0; j <= h; j++)
+				cout << r->Oclave(i).nombre<< "  compro: "<< r->Oclave(i).vecescompra<<endl;
+				if (r->Oclave(i).tipo == "0") {
+					if (r->Oclave(i).vecescompra > k) {
+						k = r->Oclave(i).vecescompra;
+						superk = r->Oclave(i).nombre;
+					}
+					if (r->Oclave(i).vecescompra < m) {
+						m = r->Oclave(i).vecescompra;
+						superm = r->Oclave(i).nombre;
+					}
+				}
+			//cout << r->Oclave(i).Ocedula() << endl;
+		}
+		// llamadas recursivas a la otra mitad de los sub�rboles
+		for (i = r->Ocuenta() / 2 + 1; i <= r->Ocuenta();i++)
+			clientequemascompro(r->Orama(i), h + 5, k, m, superk, superm);
+		cout << endl;
+	}
+}
+
+void arbolMasVendido(NodoAA* actual, int &k, int &m, string &superk, string &superm) {
+	if (actual != NULL)
+	{
+		if (actual->masVendido > k) {
+			k = actual->masVendido;
+			superk = actual->nombre;
+		}
+		if (actual->masVendido < m) {
+			m = actual->masVendido;
+			superm = actual->nombre;
+		}
+		arbolMasVendido(actual->izquierda,k,m,superk,superm);
+		arbolMasVendido(actual->derecha, k,m,superk,superm);
+	}
+}
+
+void promedio(NodoAA* actual, int &k, int &m) {
+	if (actual != NULL)
+	{
+		k += actual->precioU;
+		m++;	
+		promedio(actual->izquierda, k, m);
+		promedio(actual->derecha, k, m);
+	}
+}
+
+void llamarpromedio(nodoRyN *R, int &k, int &m) {
+	//k es mayor
+	//m es menor
+	if (R == NULL) {
+		return;
+	}
+	else {
+		llamarpromedio(R->izquierdo, k, m);
+		llamarpromedio(R->derecho, k, m);
+		k = 0;
+		m = 0;
+		promedio(R->inventario->raiz, k, m);
+		cout << "el promedio es: ";
+		if (m != 0)
+			cout << 0 << endl;
+		else
+			cout << k / m << endl;
+	}
+}
+
+void MasVendido(nodoRyN *R, int &k, int &m, string &superk, string &superm) {
+	//k es mayor
+	//m es menor
+	if (R == NULL) {
+		return;
+	}
+	else {
+		MasVendido(R->izquierdo, k, m, superk, superm);
+		MasVendido(R->derecho, k, m, superk, superm);
+		if (R->cantidadSuper > k) {
+			k = R->cantidadSuper;
+			superk = R->nombre;
+		}
+		if (R->cantidadSuper < m) {
+			m = R->cantidadSuper;
+			superm = R->nombre;
+		}
+		superk = R->inventario->raiz->nombre;
+		superm = R->inventario->raiz->nombre;
+		arbolMasVendido(R->inventario->raiz, k, m, superk, superm);
+	}
+}
+
+void Server::reportes() {
+	ifstream var_archivo;
+	string STRING;
+	cout << "ultimo modificado"<<endl;
+	var_archivo.open("UltimoModificado.txt", ios::in);
+	while (!var_archivo.eof()) {
+		getline(var_archivo, STRING);//String contiene la linea de texto
+		cout << STRING<< endl;
+	}
+	ifstream archivo;
+	string text;
+
+	cout << "ultimo insertado" << endl;
+	archivo.open("UltimoInsertado.txt", ios::in);
+	while (!archivo.eof()) {
+		getline(archivo, text);//String contiene la linea de texto
+		cout << text << endl;
+	}
+	nodoRyN* super = server.supers.primeroRN;
+	int k = super->cantidadSuper;
+	int m = super->cantidadSuper;
+	string superk = super->nombre;
+	string superm = super->nombre;
+	buscarMasVisitado(super, k, m, superk, superm);
+	cout << "super  mas visitado = " << superk << k<<endl;
+	cout << "super  menos visitado = " << superm << m << endl;
+	superk = super->inventario->raiz->nombre;
+	superm = super->inventario->raiz->nombre;
+	k = super->cantidadSuper;
+	m = super->cantidadSuper;
+	MasVendido(super, k, m, superk, superm);
+	k = server.users.raiz->Oclave(0).vecescompra;
+	m = server.users.raiz->Oclave(0).vecescompra;
+	superk = server.users.raiz->Oclave(0).nombre;
+	superm = server.users.raiz->Oclave(0).nombre;
+	clientequemascompro(server.users.raiz,1,k,m,superk,superm);
+	cout << "cliente que mas compro = " << superk << k << endl;
+	cout << "cliente que menos compro = " << superm << m << endl;
+	k = 0;
+	m = 0;
+	llamarpromedio(super, k, m);
+}
 
 int main() {
 	server.cargarDatos();
-	menuAdmin();
+	//server.comprar("1024", "NES Classic Edition", 2, 1278);
+	ingresar();
 	cin.get();
 	return 0;
 }

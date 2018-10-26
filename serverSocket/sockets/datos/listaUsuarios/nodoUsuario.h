@@ -19,6 +19,7 @@ public:
 	string codCiudad,cedula,nombre,telefono,tipo;
 	int facturas = 0;
 	int descuento = 5;
+	int vecescompra=0;
 	listaC carrito;
 	
 	// obtener codigo de ciudad

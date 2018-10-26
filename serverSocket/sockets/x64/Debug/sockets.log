@@ -1,0 +1,11 @@
+﻿  Server.cpp
+c:\users\jimmy mok\desktop\proyecto 2 nuevo\estructurasv2\serversocket\sockets\datos\abb(ciudades)\binario.cpp(63): warning C4554: "&": compruebe la prioridad de operador para posibles errores; utilice paréntesis para indicar la prioridad
+c:\users\jimmy mok\desktop\proyecto 2 nuevo\estructurasv2\serversocket\sockets\server.cpp(301): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+c:\users\jimmy mok\desktop\proyecto 2 nuevo\estructurasv2\serversocket\sockets\server.cpp(336): warning C4244: 'argumento': conversión de 'SOCKET' a 'int'; posible pérdida de datos
+c:\users\jimmy mok\desktop\proyecto 2 nuevo\estructurasv2\serversocket\sockets\server.cpp(791): warning C4129: '/': secuencia de escape de carácter no reconocida
+c:\users\jimmy mok\desktop\proyecto 2 nuevo\estructurasv2\serversocket\sockets\server.cpp(786): warning C4717: 'menuAdmin': recursiva para todas las rutas de acceso de control; la función provocará el desbordamiento de la pila en tiempo de ejecución
+Server.obj : error LNK2019: sÝmbolo externo __imp_PyRun_SimpleStringFlags sin resolver al que se hace referencia en la funci¾n "int __cdecl perro(void)" (?perro@@YAHXZ)
+Server.obj : error LNK2019: sÝmbolo externo __imp_Py_Initialize sin resolver al que se hace referencia en la funci¾n "int __cdecl perro(void)" (?perro@@YAHXZ)
+Server.obj : error LNK2019: sÝmbolo externo __imp_Py_Finalize sin resolver al que se hace referencia en la funci¾n "int __cdecl perro(void)" (?perro@@YAHXZ)
+C:\Users\Jimmy Mok\AppData\Local\Programs\Python\Python36-32\libs\python36.lib : warning LNK4272: el tipo de mßquina de biblioteca 'x86' estß en conflicto con el tipo de mßquina de destino 'x64'
+C:\Users\Jimmy Mok\Desktop\Proyecto 2 nuevo\estructurasV2\serverSocket\sockets\x64\Debug\sockets.exe : fatal error LNK1120: 3 externos sin resolver
